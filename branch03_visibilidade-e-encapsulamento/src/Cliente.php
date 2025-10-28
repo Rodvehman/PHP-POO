@@ -16,7 +16,7 @@ class Cliente {
         $this->setNome($valorDoNome);
         $this->setIdade($valorDaIdade);
         $this->setEmail($valorDoEmail);
-        $this->telefone = $valorDoTelefone;
+        $this->setTelefone($valorDoTelefone);
     }
 
 
@@ -49,7 +49,7 @@ class Cliente {
         }
     }
 
-    public function setEmail(string $valorEmail):void {
+    private function setEmail(string $valorEmail):void {
         /* Usamos o filter_var com a constante FILTER_VALIDATE_EMAIL
         para o PHP verificar se o valor de e-mail informado é válido.
         Se sim, retorna TRUE. Senão, retorna FALSE. */
@@ -61,8 +61,16 @@ class Cliente {
         }
     }
 
-    public function setIdade(int $valorIdade):void {
+    private function setIdade(int $valorIdade):void {
         $this->idade = $valorIdade;
+        if ($valorIdade < 0){
+            echo "<p style='color:red'>Idade inferior a 18 anos<p>";
+        } else {
+            $this->idade = $valorIdade;
+        }
     }
     
+    private function setTelefone(string $valorTelefone):string{
+            $this->telefone = $valorTelefone;
+    }
 }
