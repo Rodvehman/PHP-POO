@@ -2,9 +2,10 @@
 require_once "src/Livro.php";
 
 $livroUm = new Livro("Senhor dos Anéis", "Tolkien", 2000);
-$livroDois = new Livro("Hobbit", "Tolkien");
-$livroTres = new Livro("Harry Potter", "Rowling", 1000);
+$livroDois = new Livro("Hobbit", "Tolkien", 2000);
+$livroTres = new Livro("Harry Potter","Rowling", 1000);
 $livroQuatro = new Livro("ABCD", "Fulano", 100);
+$livroCinco = new Livro("O Senhor dos Anéis", "Tolkien", 1500);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,55 +16,20 @@ $livroQuatro = new Livro("ABCD", "Fulano", 100);
 </head>
 <body>
     <h1>Exercícios de PHP com POO</h1>
-    <hr>
-
     <div>
-        <h2><?=$livroUm->titulo?></h2>
-
-        <?=$livroUm->verificarTitulo()?>
-        
-        <!-- Aqui, usamos uma condicional if/else para mostrar
-         parágrafos diferentes de acordo com a condição. -->
-        <?php if($livroUm->paginas): ?>
-            <!-- Se tem páginas, mostramos isso: -->
-            <p><b>Quantidade de páginas: <?=$livroUm->paginas?></b></p>
-        <?php else: ?>
-            <!-- Se não tem, mostramos isso: -->
-            <p style="color: red;"><b>Não foram informadas as páginas</b></p>
-        <?php endif; ?>
-
+        <h2>Título: <?=$livroCinco->getTitulo()?></h2>
+        <h3>Autor: <?=$livroCinco->getAutor()?></h3>
+        <h3>Páginas: <?=$livroCinco->getPaginas()?></h3>
     </div>
-
-    <hr>
-
-    <details open>
-        <summary><?=$livroDois->titulo?></summary>
-        <p>
-            <b>Quantidade de páginas: 
-                <!-- Tem páginas? Mostra as páginas.
-                 Não tem? Mostra o "não informado" (como se um fosse um if) -->
-                <?=$livroDois->paginas ?? "não informado" ?>
-            </b>
-        </p>
-    </details>
-
-    <hr>
-
-    <ol>
-        <li><?=$livroTres->titulo?></li>
-        <li><?=$livroTres->paginas?> páginas</li>
-    </ol>
-
-    <hr>
-
-    <p>Título do livro: <?=$livroQuatro->titulo?></p>
-    <p>Autor: <?=$livroQuatro->autor?></p>
-    
-    <!-- Usamos um if para, se houver páginas (ou seja, não for null),
-     faremos aparecer o parágrafo com o dado. -->
-    <?php if( $livroQuatro->paginas ): ?>
-    <p>Páginas: <?=$livroQuatro->paginas?></p>
-    <?php endif; ?>
-
+    <div>
+        <h2>Título: <?=$livroDois->getTitulo()?></h2>
+        <h3>Autor: <?=$livroDois->getAutor()?></h3>
+        <h3>Páginas: <?=$livroDois->getPaginas()?></h3>
+    </div>
+    <div>
+        <h2>Título: <?=$livroUm->getTitulo()?></h2>
+        <h3>Autor: <?=$livroUm-getAutor()?></h3>
+        <h3>Páginas: <?=$livroUm->getPaginas()?></h3>
+    </div>
 </body>
 </html>

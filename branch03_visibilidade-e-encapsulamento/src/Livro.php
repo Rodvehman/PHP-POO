@@ -5,24 +5,24 @@ class Livro {
     private ?int $paginas;
 
     public function __construct(
-        string $valorTitulo, 
+        string $titulo, 
         string $valorAutor,
         ?int $valorPaginas = null
     ){
-        $this->setValorTitulo($valorTitulo);
+        $this->setTitulo($titulo);
         $this->setAutor($valorAutor);
         $this->setTotalPaginas($valorPaginas);
     }
 
     /* programe também (dentro da classe Livro) um método chamado verificarTitulo que, ao ser chamado, ele verifica se a quantidade de caracteres do atributo "titulo" é menor que 3. E se for, o método deve mostrar uma mensagem vermelha dizendo "Título não pode ter menos do que 3 letras */
-    public function verificarTitulo(string $b):string {
+    public function verificarTitulo(string $titulo):string {
 
-        if( mb_strlen($b) < 3 ){
+        if( mb_strlen($titulo) < 3 ){
             echo "<p style='color:red'>
             Título não pode ter menos do que 3 letras</p>";
         }
 
-        return $b
+        return $titulo;
     }
 
     public function getTitulo():string{
@@ -37,17 +37,17 @@ class Livro {
         return $this->paginas;
     }
 
-    private function setValorTitulo(float $valorTitulo):void{
-        $a = $this->verificarTitulo($valorTitulo);
-        $this->valorTitulo = $valorTitulo;
+    private function setTitulo(string $titulo):void{
+        // $a = $this->verificarTitulo($valorTitulo);
+        $this->titulo = $titulo;
     }
 
     private function setAutor(string $autor):void {
         $this->autor = $autor;
     }
 
-    private function setTotalPaginas(int $valorPaginas):void {
-        $this->totalPaginas = $valorPaginas;
+    private function setTotalPaginas(?int $valorPaginas):void {
+        $this->paginas = $valorPaginas;
     }
 
 }
