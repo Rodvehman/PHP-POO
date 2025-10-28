@@ -32,8 +32,15 @@ class Cliente {
     public function getIdade():int {
         return $this->idade;
     }
-    public functio getTelefone():?string {
+    public function getTelefone():?string {
         return $this->telefone;
+    }
+
+    public function setEmail(string $valorEmail):void {
+        /* Usamos o filter_var com a constante FILTER_VALIDATE_EMAIL
+        para o PHP verificar se o valor de e-mail informado é válido.
+        Se sim, retorna TRUE. Senão, retorna FALSE. */
+        $validaEmail = filter_var($valorEmail, FILTER_VALIDATE_EMAIL);
     }
     
 }
